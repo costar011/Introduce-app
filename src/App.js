@@ -11,8 +11,11 @@ class App extends React.Component {
     return (
       <div className="app">
         <div className="app__top">Test</div>
+        <div className="app__line"></div>
         <div className="app__middle">Test1</div>
+        <div className="app__line"></div>
         <div className="app__bottom">Test2</div>
+        <div className="app__line"></div>
       </div>
     );
   }
