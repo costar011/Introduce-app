@@ -9,7 +9,7 @@ class App extends React.Component {
   constructor(pros) {
     super(pros);
 
-    this.state = { imgpath: "", btnClick: false };
+    this.state = { imgpath: " ", btnClick: false };
   }
   render() {
     const { imgpath, btnClick } = this.state;
@@ -21,119 +21,51 @@ class App extends React.Component {
           <div className="btn">
             <input
               type="button"
-              value="photo"
-              onClick={this._potoHandler}
+              value="img1"
+              onClick={this._imgHandler1}
             ></input>
 
             <input
               type="button"
-              value="photo1"
-              onClick={this._potoHandler1}
+              value="img2"
+              onClick={this._imgHandler2}
             ></input>
 
             <input
               type="button"
-              value="photo2"
-              onClick={this._potoHandler2}
+              value="img3"
+              onClick={this._imgHandler3}
             ></input>
 
             <input
               type="button"
-              value="photo3"
-              onClick={this._potoHandler3}
-            ></input>
-
-            <input
-              type="button"
-              value="photo4"
-              onClick={this._potoHandler4}
+              value="img4"
+              onClick={this._imgHandler4}
             ></input>
           </div>
         </div>
 
-        <div className="loding">
-          {btnClick ? <img src={imgpath} /> : <div>loding . . .</div>}
+        <div className="sc">
+          {btnClick ? <img src={imgpath} /> : <div>loading...</div>}
         </div>
       </div>
     );
   }
-  _potoHandler = () => {
+
+  _imgHandler1 = () => {
     this.setState({
       btnClickFlag: false,
     });
 
     setTimeout(() => {
       this.setState({
-        btnClick: true,
+        btnClickFlag: true,
       });
     }, 2000);
 
     this.setState({
-      imgpath: img1,
+      imgPath: img1,
     });
-  };
-
-  _potoHandler1 = () => {
-    this.setState({
-      btnClick: false,
-    });
-
-    setTimeout(() => {
-      this.setState({
-        btnClick: true,
-      });
-    }, 2000);
-
-    this.setState({
-      imgpath: img1,
-    });
-
-    _potoHandler2 = () => {
-      this.setState({
-        btnClickFlag: false,
-      });
-
-      setTimeout(() => {
-        this.setState({
-          btnClick: true,
-        });
-      }, 2000);
-
-      this.setState({
-        imgpath: img2,
-      });
-    };
-    _potoHandler3 = () => {
-      this.setState({
-        btnClickFlag: false,
-      });
-
-      setTimeout(() => {
-        this.setState({
-          btnClick: true,
-        });
-      }, 2000);
-
-      this.setState({
-        imgpath: img3,
-      });
-    };
-
-    _potoHandler4 = () => {
-      this.setState({
-        btnClickFlag: false,
-      });
-
-      setTimeout(() => {
-        this.setState({
-          btnClick: true,
-        });
-      }, 2000);
-
-      this.setState({
-        imgpath: img4,
-      });
-    };
   };
 }
 
