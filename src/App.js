@@ -1,9 +1,8 @@
 import React from "react";
 import "./styles/app.css";
-import img1 from "./img/img1.jpg";
-import img2 from "./img/img2.jpg";
-import img3 from "./img/img3.jpg";
-import img4 from "./img/img4.jpg";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
 
 class App extends React.Component {
   constructor(pros) {
@@ -13,60 +12,38 @@ class App extends React.Component {
   }
   render() {
     const { imgpath, btnClick } = this.state;
+
+    const settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 2000,
+      afterChange: () => console.log("Screen"),
+    };
     return (
       <div className="app">
-        <div className="app__top">제목</div>
-
-        <div className="app__middle">
-          <div className="btn">
-            <input
-              type="button"
-              value="img1"
-              onClick={this._imgHandler1}
-            ></input>
-
-            <input
-              type="button"
-              value="img2"
-              onClick={this._imgHandler2}
-            ></input>
-
-            <input
-              type="button"
-              value="img3"
-              onClick={this._imgHandler3}
-            ></input>
-
-            <input
-              type="button"
-              value="img4"
-              onClick={this._imgHandler4}
-            ></input>
-          </div>
-        </div>
-
-        <div className="sc">
-          {btnClick ? <img src={imgpath} /> : <div>loading...</div>}
+        <div className="app__top">
+          <Slider {...settings}>
+            <div className="slick__box">
+              <h3 className="slick__box__1">test</h3>
+            </div>
+            <div className="slick__box">
+              <h3 className="slick__box__2">test2</h3>
+            </div>
+            <div className="slick__box">
+              <h3 className="slick__box__3">test3</h3>
+            </div>
+            <div className="slick__box">
+              <h3 className="slick__box__4">test4</h3>
+            </div>
+          </Slider>
         </div>
       </div>
     );
   }
-
-  _imgHandler1 = () => {
-    this.setState({
-      btnClickFlag: false,
-    });
-
-    setTimeout(() => {
-      this.setState({
-        btnClickFlag: true,
-      });
-    }, 2000);
-
-    this.setState({
-      imgPath: img1,
-    });
-  };
 }
 
 export default App;
